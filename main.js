@@ -25,22 +25,22 @@ var AVLTree = require('./AVL/AVLTree.js');
 /* TEST CODE FOR AVL TREE
 //*************************/
 
-var avl = new AVLTree();
-
-console.log('Adding to avl tree.\n');
-
-for (var i = 0; i < 10; i++) {
-  avl.insert(i);
-  console.log('Added ' + i + '.');
-}
-
-console.log('Num Elements: ' + avl.numElements);
-console.log('Root val: ' + avl.root.e);
-
-console.log('Testing flatten.\n');
-
-var flatTree = avl.flatten();
-
-flatTree.forEach(function(elem) {
-  console.log('Item: ' + elem);
-});
+// var avl = new AVLTree();
+//
+// console.log('Adding to avl tree.\n');
+//
+// for (var i = 10; i >= 0; i--) {
+//   avl.insert(i);
+//   console.log('Added ' + i + '.');
+// }
+//
+// console.log('Num Elements: ' + avl.numElements);
+// console.log('Root val: ' + avl.root.e);
+//
+// console.log('Testing flatten.\n');
+//
+// var flatTree = avl.flatten();
+//
+// flatTree.forEach(function(elem) {
+//   console.log('Item: ' + elem);
+// });
