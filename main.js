@@ -1,5 +1,6 @@
 var LinkedList = require('./LinkedList/LinkedList.js');
 var BinarySearchTree = require('./BST/BSTree.js');
+var AVLTree = require('./AVL/AVLTree.js');
 
 /* TEST CODE FOR LINKED LIST
 //***************************/
@@ -21,24 +22,25 @@ var BinarySearchTree = require('./BST/BSTree.js');
 //   console.log();
 // }
 
-/* TEST CODE FOR BINARY SEARCH TREE
-//**********************************/
+/* TEST CODE FOR AVL TREE
+//*************************/
 
-// var bst = new BinarySearchTree();
-//
-// console.log('Adding to bst.\n');
-//
-// for (var i = 0; i < 10; i++) {
-//   bst.add(i);
-//   console.log('Added ' + i + '.');
-// }
-//
-// console.log('Num Elements: ' + bst.numElements);
-//
-// console.log('Testing flatten.\n');
-//
-// var flatTree = bst.flatten();
-//
-// flatTree.forEach(function(elem) {
-//   console.log('Item: ' + elem);
-// });
+var avl = new AVLTree();
+
+console.log('Adding to avl tree.\n');
+
+for (var i = 0; i < 10; i++) {
+  avl.insert(i);
+  console.log('Added ' + i + '.');
+}
+
+console.log('Num Elements: ' + avl.numElements);
+console.log('Root val: ' + avl.root.e);
+
+console.log('Testing flatten.\n');
+
+var flatTree = avl.flatten();
+
+flatTree.forEach(function(elem) {
+  console.log('Item: ' + elem);
+});

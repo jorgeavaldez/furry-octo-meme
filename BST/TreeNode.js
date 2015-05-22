@@ -8,6 +8,7 @@
 //    right - Pointer to the right node.
 function TreeNode(e, left, right) {
   this.e = e;
+  this.height = 0;
 
   if (left) {
     this.left = left;
@@ -15,18 +16,6 @@ function TreeNode(e, left, right) {
 
   if (right) {
     this.right = right;
-  }
-};
-
-// height function
-//    Returns the maximum of the height of the LST and RST.
-TreeNode.prototype.height = function () {
-  if (!this.left && !this.right) {
-    return 0;
-  }
-
-  else {
-    return 1 + Math.max(this.left.height(), this.right.height());
   }
 };
 
