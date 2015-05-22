@@ -50,6 +50,7 @@ AVLTree.prototype._insert = function (root, e) {
 
 AVLTree.prototype._balance = function (root) {
 
+  var ok = root.left && root.right;
   // inb4 this case actually happens
   if (!root) {
     return;
@@ -57,7 +58,6 @@ AVLTree.prototype._balance = function (root) {
 
   // Imbalance in LST
   if (this._nodeHeight(root.left) - this._nodeHeight(root.right) > 1) {
-    var ok = root.left && root.left;
     if (ok && this._nodeHeight(root.left.left) >= this._nodeHeight(root.left.right)) {
       root = this._rotateWithLeftChild(root);
     }
@@ -69,7 +69,6 @@ AVLTree.prototype._balance = function (root) {
 
   // Imbalance in RST
   else if (this._nodeHeight(root.right) - this._nodeHeight(root.left) > 1) {
-    var ok = root.left && root.left;
     if (ok && this._nodeHeight(root.left.right) >= this._nodeHeight(root.left.left)) {
       root = this._rotateWithRightChild(root);
     }
@@ -109,15 +108,15 @@ AVLTree.prototype._rotateWithRightChild = function (k1) {
 
 // Case 2 double rotation.
 AVLTree.prototype._doubleWithLeftChild = function (k3) {
-  k3.left = this.rotateWithRightChild(k3.left);
-  k3 = this.rotateWithLeftChild(k3);
+  k3.left = this._rotateWithRightChild(k3.left);
+  k3 = this._rotateWithLeftChild(k3);
   return k3;
 };
 
 // Case 3 double rotation.
-AVLTree.prototype._doubleWithRighttChild = function (k1) {
-  k1.left = this.rotateWithLeftChild(k1.left);
-  k1 = this.rotateWithRightChild(k1);
+AVLTree.prototype._doubleWithRightChild = function (k1) {
+  k1.left = this._rotateWithLeftChild(k1.left);
+  k1 = this._rotateWithRightChild(k1);
   return k1;
 };
 

@@ -90,6 +90,6 @@ LinkedList.prototype.pop = function () {
 
 LinkedList.prototype.isEmpty = function () {
   return this.length === 0;
-}
+};
 
 module.exports = LinkedList;

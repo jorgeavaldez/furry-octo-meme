@@ -9,6 +9,6 @@ function ListNode(e, next) {
   if (next) {
     this.next = next;
   }
-};
+}
 
 module.exports = ListNode;

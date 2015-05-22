@@ -17,6 +17,6 @@ function TreeNode(e, left, right) {
   if (right) {
     this.right = right;
   }
-};
+}
 
 module.exports = TreeNode;
