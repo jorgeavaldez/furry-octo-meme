@@ -1,0 +1,19 @@
+{
+  "name": "furry-octo-meme",
+  "version": "0.1.0",
+  "description": "Basic search engine for text files using a persistent index.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgeavaldez/furry-octo-meme.git"
+  },
+  "author": "Jorge Valdez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jorgeavaldez/furry-octo-meme/issues"
+  },
+  "homepage": "https://github.com/jorgeavaldez/furry-octo-meme#readme"
+}

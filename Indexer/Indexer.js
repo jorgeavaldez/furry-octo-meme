@@ -10,10 +10,14 @@ Index.prototype.setFileName = function (filename) {
   this.inStream = fs.createReadStream(filename);
 };
 
-Index.prototype.indexFile = function () {
-  if (!this.inStream) {
+Index.prototype.indexFile = function (filename) {
+  if (!this.inStream && !filename) {
     console.log('No file specified :(');
     return;
+  }
+
+  else if (!this.inStream && filename) {
+    this.setFileName(filename);
   }
 
   var firstRun = true;
