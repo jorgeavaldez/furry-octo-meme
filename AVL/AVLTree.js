@@ -1,4 +1,4 @@
-var TreeNode = require('../BST/TreeNode.js');
+var TreeNode = require('./TreeNode.js');
 
 function AVLTree() {
   this.numElements = 0;

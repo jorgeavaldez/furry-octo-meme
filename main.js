@@ -1,6 +1,6 @@
-var Index = require('./Indexer.js');
+var Index = require('./Indexer/Indexer.js');
 
 var bibIndex = new Index();
 
-bibIndex.setFileName('./Assets/bible.txt');
+bibIndex.setFileName('./Assets/txt/bible.txt');
 bibIndex.indexFile();

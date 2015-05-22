@@ -1,4 +1,4 @@
-var AVLTree = require('./AVL/AVLTree.js');
+var AVLTree = require('../AVL/AVLTree.js');
 var fs = require('fs');
 
 function Index() {
