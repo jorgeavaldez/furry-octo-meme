@@ -1,7 +1,10 @@
 var AVLTree = require('../AVL/AVLTree.js');
+var WordIndex = require('WordIndex.js');
 var fs = require('fs');
 
 function Index() {
+  // We're switching the index structure to a hash map.
+  // Basically just an array, but whatever.
   this.index = new AVLTree();
   this.inStream = null;
 }
@@ -22,15 +25,15 @@ Index.prototype.indexFile = function (filename) {
 
   var firstRun = true;
 
-  this.inStream.on('readable', this._thisReadable(firstRun));
+  this.inStream.on('readable', this._streamReadableCallback(firstRun));
 
   //console.log('Index length: ', index.numElements);
 
-  this.inStream.on('end', this._thisEnd());
+  this.inStream.on('end', this._streamEndCallback());
 
 };
 
-Index.prototype._thisReadable = function (firstRun) {
+Index.prototype._streamReadableCallback = function (firstRun) {
   return (function() {
     if (firstRun) {
       console.log('Indexing started...\n');
@@ -41,7 +44,24 @@ Index.prototype._thisReadable = function (firstRun) {
     var buffer;
     var wordBuff = '';
 
+    var line = '';
+    var lineNum = 1;
+
+    // At this point we should begin keeping track of the line number that
+    // we are at.
+    // Probably store it in a struct of some sort.
     while(buffer = this.inStream.read(1)) {
+
+      // Finding a space. We just reset wordBuff and append to the line.
+      if (buffer.toString() === ' ') {
+        line.concat(wordBuff + ' ');
+
+      }
+
+      else if (buffer.toString() === '\n') {
+
+      }
+
       if (buffer.toString() !== ' ' && buffer.toString() !== '\n') {
         wordBuff += buffer.toString();
       }
@@ -54,7 +74,7 @@ Index.prototype._thisReadable = function (firstRun) {
   }).bind(this);
 };
 
-Index.prototype._thisEnd = function () {
+Index.prototype._streamEndCallback = function () {
   return (function() {
       console.log('Indexing complete.');
       console.log('Index size: ', this.index.numElements);
